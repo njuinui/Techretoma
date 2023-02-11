@@ -23,6 +23,13 @@ const getTodos = (resource) => {
 
 };
 
+getTodos('todos/luigi.json').then((data) => {
+    console.log('promise resolved:', data);
+
+}).ctch(err => {
+    console.log('promise rejected:', err);
+});
+
 
 
 // promise exaple 
@@ -40,11 +47,11 @@ const getTodos = (resource) => {
 //     console.log(err)
 // });
 
-getSomething().then(data => {
-    console.log(data)
-}).catch(err => {
-    console.log(err)
-});
+// getSomething().then(data => {
+//     console.log(data)
+// }).catch(err => {
+//     console.log(err)
+// });
 
 // getTodos((err, data) => {
 //     console.log('callback fire');

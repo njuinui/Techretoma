@@ -31,7 +31,7 @@ form.addEventListener('submit', e => {
         }else{
             output++;
         }
-    }, 1000);
+    }, 10);
     
 
     
