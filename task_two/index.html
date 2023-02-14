@@ -13,9 +13,9 @@
 <body>
     <nav class="navbar ">
         <a class="navbar-brand tex-white">QUIZ APP</a>
-        <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline" >
+          <input id="nQuestion" class="form-control mr-sm-2 btn-sm" type="number" placeholder="Enter number of question you want to answer..">
+          <button id="button" class="btn btn-sm btn-outline-success my-2 my-sm-0" type="button">Submit</button>
         </form>
       </nav>
     <!-- result section  -->
@@ -25,40 +25,293 @@
             <p>You'r score <span class="text-primary display-4 p-3">0%</span></p>
         </div>
     </div>
-    <div class="py-4">
+    <div class="py-3 my-3">
         <div class="container quiz">
-             <form action="" method="post" class="quiz ">
-                  <div class="card py-2 my-2" style="width: 80%;">
+            <h4 class="text-center text-light">Welcome to our quiz section</h4>
+            <p class="text-light text-center">You're to answer <span id="result">0</span> question(s)</p>
+            <div class="error">
+                
+            </div>
+            
+             <form action="" method="post" class="quiz">
+                  <div class="card p-2 my-2 bg-ligh" style="width:95%;">
                         <div class="card-body">
-                            <h5 class="card-title">1. How do you give a ninja directions?</h5> 
+                            <h5 class="card-title">1. The vaue of x if 32<sup>x</sup> = 0.25 is:</h5> 
                             <div class="d-flex card-title text-center">
                                 <div class="form-check my-2 text-dark-50">
-                                    <input type="radio" name="q1" value="A"> A)
-                                    <lable class="form-check-label">1 apple</lable>
+                                    <input type="radio" name="q1" value="A"> 
+                                    <lable class="form-check-label">A) 2/5</lable>
                                 </div>
                                 <div class="form-check my-2 text-dark-50">
-                                   <input type="radio" name="q1" value="B"> B)
-                                    <lable class="form-check-label">1 apple</lable>
+                                   <input type="radio" name="q1" value="B">
+                                    <lable class="form-check-label">B) 5/2</lable>
                                 </div>
                                 <div class="form-check my-2 text-dark-50">
-                                   <input type="radio" name="q1" value="C"> C)
-                                    <lable class="form-check-label">1 apple</lable>
+                                   <input type="radio" name="q1" value="C">
+                                    <lable class="form-check-label">C) 2/10</lable>
                                 </div>
                                 <div class="form-check my-2 text-dark-50">
-                                   <input type="radio" name="q1" value="D"> D)
-                                    <lable class="form-check-label">1 apple</lable>
+                                   <input type="radio" name="q1" value="D">
+                                    <lable class="form-check-label">D) 4</lable>
                                 </div>
                                 <div class="form-check my-2 text-dark-50">
-                                   <input type="radio" name="q1" value="E"> E)
-                                    <lable class="form-check-label">1 apple</lable>
+                                   <input type="radio" name="q1" value="E">
+                                    <lable class="form-check-label">E) None </lable>
                                 </div>
                             </div>                       
                         </div>
                   </div>
-                 <div class="justify-space-between text-center d-inline-block">
-                    <p>you</p>
-                    <p>you</p>
+                  
+                  <div class="card p-2 my-2 bg-ligh" style="width:95%;">
+                        <div class="card-body">
+                            <h5 class="card-title">2. A group of 2 boys and 3 girls are to be chosen from 5 boys and 4 girls. If one girl refuses to serve in the commitee as one particular boy, the number of posible groups is:</h5> 
+                            <div class="d-flex card-title text-center">
+                                <div class="form-check my-2 text-dark-50">
+                                    <input type="radio" name="q2" value="A"> 
+                                    <lable class="form-check-label">A) 40</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q2" value="B">
+                                    <lable class="form-check-label">B) 12</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q2" value="C">
+                                    <lable class="form-check-label">C) 10</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q2" value="D">
+                                    <lable class="form-check-label">D) 28</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q2" value="E">
+                                    <lable class="form-check-label">E) 8</lable>
+                                </div>
+                            </div>                       
+                        </div>
+                  </div>
+                  <div class="card p-2 my-2 bg-ligh" style="width:95%;">
+                        <div class="card-body">
+                            <h5 class="card-title">3. Which of the following is not possibly the equation of a circle</h5> 
+                            <div class="d-flex card-title text-center">
+                                <div class="form-check my-2 text-dark-50">
+                                    <input type="radio" name="q3" value="A"> 
+                                    <lable class="form-check-label">A) x<sup>2</sup> + y<sup>2</sup> -x = 0</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q3" value="B">
+                                    <lable class="form-check-label">B) x<sup>2</sup> + y<sup>2</sup> -x -y = 0</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q3" value="C">
+                                    <lable class="form-check-label">C) 3x<sup>2</sup> + 3y<sup>2</sup> = 1</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q3" value="D">
+                                    <lable class="form-check-label">D) x<sup>2</sup> + y<sup>2</sup> -6x - 8y = 2 </lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q3" value="E">
+                                    <lable class="form-check-label">E) None</lable>
+                                </div>
+                            </div>                       
+                        </div>
+                  </div>
+                  <div class="card p-2 my-2 bg-ligh" style="width:95%;">
+                        <div class="card-body">
+                            <h5 class="card-title">4. When two circles with centers C<sub>1</sub> and C<sub>2</sub> and radii r<sub>1</sub> and r<sub>2</sub> respectively interset externally C<sub>1</sub>C<sub>2</sub> is:</h5> 
+                            <div class="d-flex card-title text-center">
+                                <div class="form-check my-2 text-dark-50">
+                                    <input type="radio" name="q4" value="A"> 
+                                    <lable class="form-check-label">A) r<sub>1</sub><sup>2</sup> + r<sub>2</sub><sup>2</sup></lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q4" value="B">
+                                    <lable class="form-check-label">B) r<sub>1</sub> + r<sub>2</sub></lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q4" value="C">
+                                    <lable class="form-check-label">C) |r<sub>1</sub><sup></sup> + r<sub>2</sub>|</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q4" value="D">
+                                    <lable class="form-check-label">D) |r<sub>1</sub> - r<sub>2</sub> |</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q4" value="E">
+                                    <lable class="form-check-label">E) r<sub>1</sub>r<sub>2</sub></lable>
+                                </div>
+                            </div>                       
+                        </div>
+                  </div>
+                  <div class="card p-2 my-2 bg-ligh" style="width:95%;">
+                        <div class="card-body">
+                            <h5 class="card-title">5. The coordinate of the turning point on the curve with the parameteric equations x = t<sup>2</sup>, y = (1 + t)<sup>2</sup> are </h5> 
+                            <div class="d-flex card-title text-center">
+                                <div class="form-check my-2 text-dark-50">
+                                    <input type="radio" name="q5" value="A"> 
+                                    <lable class="form-check-label">A) (0,1)</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q5" value="B">
+                                    <lable class="form-check-label">B) (-1, 0)</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q5" value="C">
+                                    <lable class="form-check-label">C) (0, -1</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q5" value="D">
+                                    <lable class="form-check-label">D) (1, 4)</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q5" value="E">
+                                    <lable class="form-check-label">E) (-1, 4)</lable>
+                                </div>
+                            </div>                       
+                        </div>
+                  </div>
+                  <div class="card p-2 my-2 bg-ligh" style="width:95%;">
+                        <div class="card-body">
+                            <h5 class="card-title">6. The coefficients of the term in x<sup>0</sup> in the binomial expansion(2x - 1/x<sup>2</sup> )<sup>6</sup> is:</h5> 
+                            <div class="d-flex card-title text-center">
+                                <div class="form-check my-2 text-dark-50">
+                                    <input type="radio" name="q6" value="A"> 
+                                    <lable class="form-check-label">A) 240</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q6" value="B">
+                                    <lable class="form-check-label">B) 480</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q6" value="C">
+                                    <lable class="form-check-label">C) 180</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q6" value="D">
+                                    <lable class="form-check-label">D) 120</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q6" value="E">
+                                    <lable class="form-check-label">E) 20</lable>
+                                </div>
+                            </div>                       
+                        </div>
+                  </div>
+                  <div class="card p-2 my-2 bg-ligh" style="width:95%;">
+                        <div class="card-body">
+                            <h5 class="card-title">7. Given the differential equation cosx dy/dx = ysinx, then:</h5> 
+                            <div class="d-flex card-title text-center">
+                                <div class="form-check my-2 text-dark-50">
+                                    <input type="radio" name="q7" value="A"> 
+                                    <lable class="form-check-label">A) y = in(secx) + K</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q7" value="B">
+                                    <lable class="form-check-label">B) iny = (secx) + K</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q7" value="C">
+                                    <lable class="form-check-label">C) y = secx + K </lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q7" value="D">
+                                    <lable class="form-check-label">D) iny = secx + K</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q7" value="E">
+                                    <lable class="form-check-label">E) None</lable>
+                                </div>
+                            </div>                       
+                        </div>
+                  </div>
+                  
+                  <div class="card p-2 my-2 bg-ligh" style="width:95%;">
+                        <div class="card-body">
+                            <h5 class="card-title">8. The center of a circle 2x<sup>2</sup> + 2y<sup>2</sup> - 2x + y - 1/2 = 0 is:</h5> 
+                            <div class="d-flex card-title text-center">
+                                <div class="form-check my-2 text-dark-50">
+                                    <input type="radio" name="q8" value="A"> 
+                                    <lable class="form-check-label">A) (1/2 , 1/4)</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q8" value="B">
+                                    <lable class="form-check-label">B) (2 , -1)</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q8" value="C">
+                                    <lable class="form-check-label">C) (-1/2 , -1/4)</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q8" value="D">
+                                    <lable class="form-check-label">D) (1/2 , -1/4)</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q8" value="E">
+                                    <lable class="form-check-label">E) (-1/2 , 1/4)</lable>
+                                </div>
+                            </div>                       
+                        </div>
+                  </div>
+                  <div class="card p-2 my-2 bg-ligh" style="width:95%;">
+                        <div class="card-body">
+                            <h5 class="card-title">9. The equation of line through the origin perpendicular to 3x - 2y + 4 = 0 is:</h5> 
+                            <div class="d-flex card-title text-center">
+                                <div class="form-check my-2 text-dark-50">
+                                    <input type="radio" name="q9" value="A"> 
+                                    <lable class="form-check-label">A) 2x + 3y = 0</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q9" value="B">
+                                    <lable class="form-check-label">B) 3x - 2y = 0</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q9" value="C">
+                                    <lable class="form-check-label">C) 9x - 6y -26 = 0</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q9" value="D">
+                                    <lable class="form-check-label">D) 3x + 2y = 0</lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q9" value="E">
+                                    <lable class="form-check-label">E) 2y - 3x + 1 = 0</lable>
+                                </div>
+                            </div>                       
+                        </div>
+                  </div>
+                  <div class="card p-2 my-2 bg-ligh" style="width:95%;">
+                        <div class="card-body">
+                            <h5 class="card-title">10. Given that y = x<sup>3</sup>e<sup>x<sup>3</sup></sup>, then dy/dx = </h5> 
+                            <div class="d-flex card-title text-center">
+                                <div class="form-check my-2 text-dark-50">
+                                    <input type="radio" name="q10" value="A"> 
+                                    <lable class="form-check-label">A) 3x<sup>2</sup>e<sup>x<sup>3</sup></sup></lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q10" value="B">
+                                    <lable class="form-check-label">B) (3x<sup>2</sup> + 3x<sup>5</sup>)e<sup>x<sup>3</sup></sup></lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q10" value="C">
+                                    <lable class="form-check-label">C) (3x<sup>2</sup> + x<sup>3</sup>)e<sup>x<sup>3</sup></sup></lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q10" value="D">
+                                    <lable class="form-check-label">D) 3x<sup>2</sup>e<sup>x<sup>2</sup></sup></lable>
+                                </div>
+                                <div class="form-check my-2 text-dark-50">
+                                   <input type="radio" name="q10" value="E">
+                                    <lable class="form-check-label">E) None</lable>
+                                </div>
+                            </div>                       
+                        </div>
+                  </div>
+                  
+                 <div class="d-flex buttons">
+                    <button class="btn btn-sm btn-primary my-2 my-sm-0" type="button" onclick="prev()">Previous</button>
+                    <button class="btn btn-sm btn-success my-2 my-sm-0 flex-end" type="button" onclick="next()">Next</button>
                  </div>
+                 <button class="btn btn-success" type="submit">Submit</button>
              </form>
         </div>
     </div>

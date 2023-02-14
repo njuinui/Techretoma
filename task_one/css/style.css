@@ -1,57 +1,57 @@
-*{
-    margin: 0;
-    padding: 0;
+*, *::before, *::after {
     box-sizing: border-box;
-    background-color: #ecf0f3;
     font-family: sans-serif;
-    outline: none;
+    font-weight: normal;
 }
 
-.container {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #00AAFF, #00FF6C);
 }
-.calculator {
-    background-color: #ecf0f3;
-    padding: 15px;
-    border-radius: 30px;
-    box-shadow: inset 5px 5px 12px #ffffff, 5px 5px 12px rgba(0, 0, 0, 0.16);
+
+.calculator-grid {
     display: grid;
-    grid-template-columns: repeat(4,68px);
+    justify-content: center;
+    align-content: center;
+    min-height: 100vh;
+    grid-template-columns: repeat(4,100px);
+    grid-template-rows: minmax(120px, auto) repeat(5,100px);
 }
 
-input {
-    grid-column: span 4;
-    height: 70px;
-    width: 260px;
-    background-color: #ecf0f3;
-    box-shadow: inset -5px -5px 12px #ffffff, inset 5px 5px 12px rgba(0, 0, 0, 0.16);
-    border: none;
-    color: rgb(70,70,70);
-    font-size: 50px;
-    text-align: end;
-    margin: auto;
-    margin-top: 40px;
-    margin-bottom: 30px;
-    padding: 20px;
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+    background: rgba(255,255,255, 0.75);
+}
+.calculator-grid > button:hover {
+   
+    background: rgba(255,255,255, 0.9);
 }
 
-.calculator button{
-    height: 48px;
-    width: 48px;
-    background-color: #ecf0f3;
-    box-shadow: inset -5px -5px 12px #ffffff, 5px 5px 12px rgba(0, 0, 0, 0.16);
-    border: none;
-    border-radius: 50%;
-    margin: 8px;
-    font-size: 16px;
+.span-two {
+    grid-column: span 2;
 }
 
-.calculator .equal{
-    width: 115px;
-    border-radius: 30px;
-    background-color: #ecf0f3;
-    box-shadow: inset -5px -5px 12px #ffffff, 5px 5px 12px rgba(0, 0, 0, 0.16);
+.output {
+    grid-column: 1 / -1;
+    background: rgba(0,0,0,0.75);
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255,255,255, 0.75);
+    font-size: 1.5rem;
+}
+.output .current-operand {
+    color: white;
+    font-size: 2.5rem;
 }
