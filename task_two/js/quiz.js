@@ -59,6 +59,8 @@ const grabId = (idName) => {
   
   loadQuize();
   function loadQuize() {
+    let counter = 10;
+    let currentQuize = 0;// wipe this out
     unCheckAnswer();
     let nextOption = Data[currentQuize];
     question.innerText = nextOption.question;
@@ -67,11 +69,32 @@ const grabId = (idName) => {
     option3.innerText = nextOption.c;
     option4.innerText = nextOption.d;
     option5.innerText = nextOption.e;
+    setInterval(function () {
+      counter--;
+
+      if (counter >= 0) {
+        id = document.getElementById('count');
+        id.innerHTML = counter;
+      }
+      if (counter === 0) {
+        id.innerHTML = 'Times Up!';
+        counter = 10;
+        currentQuize++;
+      }
+
+      if (currentQuize === Data.length /* this will change when we make adjustment for user to answer only # of questions they choose and not necessarily all question in question bank */){
+        questionDivId.innerHTML = 'Well Played! Game Over';
+        id.innerHTML = '';
+      } else {
+        questionDivId.innerHTML = Data[currentQuize]
+      }
+    }, 1000);
     nextBtn.addEventListener("click", nextQuestion);
     prevBtn.addEventListener("click", PreviousQuestion);
   }
   function nextQuestion() {
-    
+    currentQuize = currentQuize + 1;
+    let counter = 10;
     const answer = getValue();
     if (answer) {
       if (answer === Data[currentQuize].correct) {
@@ -123,10 +146,11 @@ const grabId = (idName) => {
 
 
   const button = document.querySelector('button');
-  const nQuestions = document.getElementById('nQuestion')
+  const nQuestions = document.getElementById('nQuestion');
   const cards = document.getElementsByClassName('card');
-  let errors = document.getElementsByClassName('error')
-  const Nquestions = document.getElementById('result')
+  let errors = document.getElementsByClassName('error');
+  const Nquestions = document.getElementById('result');
+  const questionDivId = document.getElementById('question');
 
 
   
