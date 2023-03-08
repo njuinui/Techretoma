@@ -1,7 +1,16 @@
+const button = document.querySelector('button');
+const nQuestions = document.getElementById('nQuestion')
+const cards = document.getElementsByClassName('card');
+let errors = document.getElementsByClassName('error');
+const Nquestions = document.getElementById('result');
+const numberQuestion = document.getElementById('numberQuestion');
+
+
+
 
 const Data = [
     {
-      question: "1. The vaue of x if 32 = 0.25 to the power x is:",
+      question: " The vaue of x if 32 = 0.25 to the power x is:",
       a: "2/5 ",
       b: "5/2",
       c: "2/10",
@@ -10,7 +19,7 @@ const Data = [
       correct: "d",
     },
     {
-      question: "2. The equation of line through the origin perpendicular to 3x - 2y + 4 = 0 is:",
+      question: " The equation of line through the origin perpendicular to 3x - 2y + 4 = 0 is:",
       a: "2x + 3y = 0",
       b: "3x - 2y = 0",
       c: "9x - 6y -26 = 0",
@@ -19,7 +28,7 @@ const Data = [
       correct: "b",
     },
     {
-      question: "3.  Given the differential equation cosx dy/dx = ysinx, then:",
+      question: "Given the differential equation cosx dy/dx = ysinx, then:",
       a: "y = in(secx) + K",
       b: "iny = (secx) + K",
       c: "y = secx + K",
@@ -28,7 +37,7 @@ const Data = [
       correct: "b",
     },
     {
-      question: "4. (7-2)/2*2**2 is",
+      question: "(7-2)/2*2**2 is",
       a: "10 ",
       b: "3",
       c: "0.4",
@@ -37,6 +46,10 @@ const Data = [
       correct: "e",
     },
 ];
+
+let questionCounter = 0;
+let avilableQuestions = [];
+
 
 const grabId = (idName) => {
     const ElementId = document.getElementById(idName);
@@ -70,48 +83,102 @@ const grabId = (idName) => {
     nextBtn.addEventListener("click", nextQuestion);
     prevBtn.addEventListener("click", PreviousQuestion);
   }
-  function nextQuestion() {
-    
-    const answer = getValue();
-    if (answer) {
-      if (answer === Data[currentQuize].correct) {
-        score++;
-        
+
+  const options=[option1,option2,option3,option4,option5]
+  
+    function nextQuestion() {
+      if (questionCounter === Data.length) {
+        console.log("quiz Over");
+      }else{
+        getNewQuestion();
       }
-      currentQuize++;
-      if (currentQuize < Data.length) {
-        if (Nquestions > Data[currentQuize]) {
-          alert("You've reach your limit!!");
-        }else{
-           loadQuize();
-          }
+      
+      const answer = getValue();
+      if (answer) {
+        if (answer === Data[currentQuize].correct) {
+          score++;          
+        }
         
-      } else if (score === Data.length) {
-        quiz.innerHTML = `<h1 style="text-align:center;"> Congratulations 👏👏 <br/>You scored ${score}/${Data.length}</h1>`;
-      } else {
-        quiz.innerHTML = `<h1 style="text-align:center; color:white; "> You scored ${score}/${Data.length}`;
+      if (nQuestions.value==0) {
+        alert("Enter the Number of Question You want to answer!!")
       }
+      else {
+        currentQuize++;
+        if (currentQuize < Data.length) {
+          
+          if (nQuestions.value > Data[currentQuize] //Data.indexOf(currentQuize)) {
+          ){alert("You've reach your limit!!");
+          }else{
+            loadQuize();
+            }
+          
+        } else if (score === Data.length) {
+          quiz.innerHTML = `<h1 style="text-align:center;"> Congratulations 👏👏 <br/>You scored ${score}/${Data.length}</h1>`;
+        } else {
+          quiz.innerHTML = `<h1 style="text-align:center; color:white; "> You scored ${score}/${Data.length}`;
+        }
+      }
+   }
+  
+   } 
+   function setAvailableQuestions() {
+    const totalQuestion = Data.length;
+    for (let i = 0; i < totalQuestion; i++) {
+      avilableQuestions.push(Data[i]);
+      
     }
+   }
+
+   function getNewQuestion() {
+    numberQuestion.innerHTML = "Question" + (questionCounter + 1) + "of" + Data.length;
+    // set question text 
+    // get random question 
+    const questionIndex = avilableQuestions[Math.floor(Math.random() * avilableQuestions.length)]
+    currentQuestion = questionIndex;
+    question.innerHTML = currentQuestion.question;
+    // get the position of the questionIndex from the avilableQuestions array 
+    const index1 = avilableQuestions.indexOf(questionIndex);
+    // console.log(index1);
+    // remove the 'questionIndex'from the avilableQuestions array so that the question doesn't repeat 
+    avilableQuestions.splice(index1,1)
+    console.log(questionIndex)
+    // console.log(avilableQuestions)
+    // set options 
+    // get the length of options
+     const optionLen = currentQuestion.options.length
+     console.log(currentQuestion.options);  
+    questionCounter++;
+   }
+
+  window.onload = function () {
+    // first we will set all questions in setAvailableQuestions Array
+    setAvailableQuestions();
+    // second we'll call getNewQuestion(): function 
+    getNewQuestion();
   }
+
   
   function PreviousQuestion() {
-    if (currentQuize.valueOf() === 0) {
-      alert("Can't go back anymore");
-    } else {
-      currentQuize--;
-      loadQuize();
-    }
+      if (currentQuize.valueOf() === 0) {
+        alert("Can't go back anymore");
+      } else {
+        currentQuize--;
+        loadQuize();
+      }
   }
-  
+
   function getValue() {
     let value = undefined;
     answers.forEach((answer) => {
-      if (answer.checked) {
-        value = answer.id;
-      }
+      
+      
+        if (answer.checked) {
+           value = answer.id;
+        }     
     });
     return value;
   }
+
   
   function unCheckAnswer() {
     answers.forEach((answer) => {
@@ -119,29 +186,23 @@ const grabId = (idName) => {
     });
   }
 
-
-
-
-  const button = document.querySelector('button');
-  const nQuestions = document.getElementById('nQuestion')
-  const cards = document.getElementsByClassName('card');
-  let errors = document.getElementsByClassName('error')
-  const Nquestions = document.getElementById('result')
-
-
   
   function showResult(qNumber) {
     let nQ =  qNumber;
     let err = " You'v selected more than the number of questions.";
-    if (nQ > Data.length ) {
-        alert("You've enter more than the number of question");
-        
+    if (!isNaN(nQ)) {
+      if (nQ > Data.length ) {
+        alert("You've enter more than the number of question");        
         
     }else{
         Nquestions.innerHTML = nQ;
 
     }
 
+    }else{
+      alert("No");
+    }
+   
     
 }
 
@@ -149,30 +210,3 @@ button.addEventListener('click', () => {
     showResult(nQuestions.value)
 
 })
- 
-// const button = document.querySelector('button');
-// const nQuestions = document.getElementById('nQuestion')
-// const Nquestions = document.getElementById('result')
-// const form = document.querySelector('quiz');
-// const cards = document.getElementsByClassName('card');
-// let errors = document.getElementsByClassName('error')
-
-
-
-// function showResult(qNumber) {
-//     let nQ =  qNumber;
-//     let err = "You'v selected more than the number of question.";
-//     if (nQ <= cards.length ) {
-//         Nquestions.innerHTML = nQ;
-        
-//     }else{
-//       return err;
-//     }
-
-    
-// }
-
-// button.addEventListener('click', () => {
-//     showResult(nQuestions.value)
-
-// })
