@@ -54,9 +54,15 @@ const grabId = (idName) => {
   const question = document.querySelector("h3");
   const answers = document.querySelectorAll(".answer");
   
-  let currentQuize = 0;
+  // let currentQuize = 0;
   let score = 0;
   
+  function unCheckAnswer() {
+    answers.forEach((answer) => {
+      answer.checked = false;
+    });
+  }
+
   loadQuize();
   function loadQuize() {
     let counter = 10;
@@ -81,16 +87,23 @@ const grabId = (idName) => {
         counter = 10;
         currentQuize++;
       }
-
+      nextBtn.addEventListener("click", nextQuestion);
+      prevBtn.addEventListener("click", PreviousQuestion);
       if (currentQuize === Data.length /* this will change when we make adjustment for user to answer only # of questions they choose and not necessarily all question in question bank */){
         questionDivId.innerHTML = 'Well Played! Game Over';
         id.innerHTML = '';
       } else {
         questionDivId.innerHTML = Data[currentQuize]
       }
+
+
+      // if ((getValue() = true) && (onclick='nextBtn')) {
+      //   loadQuize();
+      //   counter = 10;
+      //   currentQuize++;
+      // }
     }, 1000);
-    nextBtn.addEventListener("click", nextQuestion);
-    prevBtn.addEventListener("click", PreviousQuestion);
+    
   }
   function nextQuestion() {
     currentQuize = currentQuize + 1;
@@ -136,11 +149,7 @@ const grabId = (idName) => {
     return value;
   }
   
-  function unCheckAnswer() {
-    answers.forEach((answer) => {
-      answer.checked = false;
-    });
-  }
+
 
 
 
