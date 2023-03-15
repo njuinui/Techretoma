@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+
+    <!-- css link  -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+   <!-- navbar section      -->
+   <nav class="navbar ">
+        <a class="navbar-brand tex-white">QUIZ APP</a>        
+        
+    </nav>
+   <!-- instruction and start button  -->
+        <section class="container instruction custom-box">
+            <div class="container">
+                <div class="card bg-ligh my-2 p-3 jalign-items-center">
+                    <div class="card-body">
+                        <h4 class="text-center">Instruction</h4>
+                        <ol>
+                            <li>Enter the number of question you want to answer</li>
+                            <li>You've 10s per each question</li>
+                            <li>If you select a wrong anwer, <br> it will be highlighted in red and the correct one in green</li>
+                            <li>Once you select an option you can't select again</li>
+                        </ol>
+                    </div>
+                    <div class="card-footer">
+                         <div class="text-center">
+                            <button class="btn btn-outline-success" type="button" onclick="startQuiz()">Start Quiz</button>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+   <!-- number of question to answer  -->
+    <section class="container number_question hide">
+        <div class="container">
+            <div class="card bg-ligh my-2 p-3 jalign-items-center">
+                <div class="card-body">
+                    <h5>Enter the number of question <br> you want to answer</h5>
+                    <form class="form-inline form" >
+                        <input id="NQ" class="form-control mr-md-2 btn-sm" type="text" placeholder="Enter number of question..">
+                        <button id="" class="btn btn-sm btn-success my-2 my-sm-0" type="button" onclick="numQuestion()">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+   
+    <!-- quiz and indicator section  -->
+    <section class="quiz-box hide custom-box">
+            <!-- quiz section  -->
+        <section class="container quiz">
+            <div class="container">
+                <div class="card bg-ligh my-4 p-3 jalign-items-center">
+                    <div class="card-header">                        
+                        <div class="timer-div">
+                            <div class="timer-left">10s</div>                        
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="number-to-answer text-center">                        
+                        </div>
+                        <h5 class="question-number text-center">                        
+                        </h5>
+                        <ul>
+                            <li class="question-text">
+                                
+                            </li>
+                        </ul>
+                        <div class="option-container"></div>
+                                    
+                    </div>
+                    <div class="card-footer">                
+                        <div class="container">
+                            <!-- <button class="btn btn-sm btn-info pre" type="button">Previous</button> -->
+                            <button class="btn btn-sm btn-success next" type="button" onclick="next()">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- answer indicator  -->
+        <section class="container indicator d-none">
+            <div class="container">
+                <div class="card jalign-items-center p-3 my-3">
+                    <div class="answers-indicator">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+   <!-- result section  -->
+   <section class="container result hide custom-box">
+      <div class="container jalign-items-center">
+        <h1 class="text-center">Quiz Result</h1>
+        <div class="card jalign-items-center p-3 my-4">
+            <div class="card-body">
+                <table class="table table-responsive">
+                    <tr>
+                        <td>Total Question</td>
+                        <td><span class="total-question"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Attempt</td>
+                        <td><span class="total-attempt"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Correct</td>
+                        <td><span class="total-correct"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Percentage</td>
+                        <td><span class="percentage"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Total Wrong</td>
+                        <td><span class="total-wrong"></span></td>
+                    </tr>
+                    <tr>
+                        <td>Your Total Score</td>
+                        <td><span class="total-score"></span></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="card-footer">                
+                <div class="container">
+                    <button class="btn btn-sm btn-info pre" type="button" onclick="tryAgainQuiz()">Try Again</button>
+                    <button class="btn btn-sm btn-success next" type="button" onclick="goToHome()">Go to Home</button>
+                </div>
+            </div>
+        </div>
+   </section>
+
+    <!-- js link  -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
